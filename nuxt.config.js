@@ -39,5 +39,7 @@ export default {
     baseURL: 'https://ibook-api.herokuapp.com'
   },
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    extractCSS: true
+  },
 }
