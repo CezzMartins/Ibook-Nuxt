@@ -1,9 +1,16 @@
 <template>
-  <div>
-    
-  </div>
+    <div class="ibook-layout">
+        <Nuxt />
+    </div>
 </template>
+<script lang="ts">
+    import Vue from 'vue'
 
-<style>
+    export default Vue.extend({
+
+    })
+</script>
+
+<style lang="scss" scoped>
 
 </style>
