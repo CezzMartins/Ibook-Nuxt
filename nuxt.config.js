@@ -10,27 +10,45 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'The ibook' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'text/plain', href: 'https://unpkg.com/swiper/swiper-bundle.css'},
+      { rel: 'text/plain', href: 'https://unpkg.com/swiper/swiper-bundle.min.css'}
+    ],
+    script: [
+      { src: 'https://unpkg.com/swiper/swiper-bundle.js', defer: true },
+      { src: 'https://unpkg.com/swiper/swiper-bundle.min.js', defer: true },
+    ],
   },
 
-  // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['normalize.css/normalize.css', '@/assets/scss/base.scss'],
 
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['@/plugins/accessor'],
-
-  // Auto import components: https://go.nuxtjs.dev/config-components
-  components: [{ path: '@/components', pathPrefix: false}],
-
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-    // https://go.nuxtjs.dev/typescript
-    
-    '@nuxt/typescript-build',
+  css: [
+    'normalize.css/normalize.css', 
+    '@/assets/scss/base.scss', 
+    'swiper/swiper-bundle.css',
+  ],
+  
+ 
+  plugins: [
+    '@/plugins/accessor', 
+    '@/plugins/swiper',
   ],
 
-  // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/style-resources','@nuxtjs/axios'],
+
+  components: [{ path: '@/components', pathPrefix: false}],
+
+  buildModules: [
+    '@nuxt/typescript-build',    
+  ],
+
+
+  modules: [
+    '@nuxtjs/style-resources',  
+    '@nuxtjs/axios',
+    
+    
+  ],
+  
   styleResources: {
     scss: ['@/components/bosons/*.scss'],
   },
@@ -38,7 +56,7 @@ export default {
   axios: {
     baseURL: 'https://ibook-api.herokuapp.com'
   },
-  // Build Configuration: https://go.nuxtjs.dev/config-build
+
   build: {
     extractCSS: true
   },
